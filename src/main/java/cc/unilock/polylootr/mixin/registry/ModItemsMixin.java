@@ -2,6 +2,8 @@ package cc.unilock.polylootr.mixin.registry;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+
+import cc.unilock.polylootr.items.PolyLootrBlockItem;
 import eu.pb4.polymer.core.api.item.PolymerBlockItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -17,22 +19,22 @@ public class ModItemsMixin {
 	@WrapOperation(method = "<clinit>", at = @At(value = "NEW", target = "(Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/item/Item$Properties;)Lnet/minecraft/world/item/BlockItem;"))
 	private static BlockItem newBlockItem(Block block, Item.Properties properties, Operation<BlockItem> original) {
 		if (block.equals(ModBlocks.BARREL)) {
-			return new PolymerBlockItem(block, properties, Items.BARREL);
+			return new PolyLootrBlockItem(block, properties, Items.BARREL);
 		}
 		if (block.equals(ModBlocks.CHEST)) {
-			return new PolymerBlockItem(block, properties, Items.CHEST);
+			return new PolyLootrBlockItem(block, properties, Items.CHEST);
 		}
 		if (block.equals(ModBlocks.INVENTORY)) {
-			return new PolymerBlockItem(block, properties, Items.CHEST);
+			return new PolyLootrBlockItem(block, properties, Items.CHEST);
 		}
 		if (block.equals(ModBlocks.SHULKER)) {
-			return new PolymerBlockItem(block, properties, Items.SHULKER_BOX);
+			return new PolyLootrBlockItem(block, properties, Items.SHULKER_BOX);
 		}
 		if (block.equals(ModBlocks.TRAPPED_CHEST)) {
-			return new PolymerBlockItem(block, properties, Items.TRAPPED_CHEST);
+			return new PolyLootrBlockItem(block, properties, Items.TRAPPED_CHEST);
 		}
 		if (block.equals(ModBlocks.TROPHY)) {
-			return new PolymerBlockItem(block, properties, Items.PLAYER_HEAD);
+			return new PolyLootrBlockItem(block, properties, Items.PLAYER_HEAD);
 		}
 
 		return original.call(block, properties);

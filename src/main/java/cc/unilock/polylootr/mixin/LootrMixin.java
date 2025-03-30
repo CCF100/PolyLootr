@@ -27,5 +27,6 @@ public class LootrMixin {
 		PolyLootr.LOGGER.info("Calling addModAssets() from PolyLootr's Lootr Mixin...");
 		PolymerResourcePackUtils.addModAssets("lootr");
 		PolymerResourcePackUtils.markAsRequired();
+
 	}
 }

@@ -27,32 +27,32 @@ import xyz.nucleoid.packettweaker.PacketContext;
 public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 	private BlockState polymerBlockState;
 	// Behold: A nightmare
-	final private BlockState baseStateBarrelUnopenedNorthOpenedFace = makeBlockState("barrel_unopened_open", 0, 0);
-	final private BlockState baseStateBarrelUnopenedSouthOpenedFace = makeBlockState("barrel_unopened_open", 0, 90);
-	final private BlockState baseStateBarrelUnopenedEastOpenedFace = makeBlockState("barrel_unopened_open", 0, 180);
-	final private BlockState baseStateBarrelUnopenedWestOpenedFace = makeBlockState("barrel_unopened_open", 0, 270);
-	final private BlockState baseStateBarrelUnopenedUpOpenedFace = makeBlockState("barrel_unopened_open", 0, 0);
+	final private BlockState baseStateBarrelUnopenedNorthOpenedFace = makeBlockState("barrel_unopened_open", 90, 0);
+	final private BlockState baseStateBarrelUnopenedEastOpenedFace = makeBlockState("barrel_unopened_open", 90, 90);
+	final private BlockState baseStateBarrelUnopenedSouthOpenedFace = makeBlockState("barrel_unopened_open", 90, 180);
+	final private BlockState baseStateBarrelUnopenedWestOpenedFace = makeBlockState("barrel_unopened_open", 90, 270);
+	final private BlockState baseStateBarrelUnopenedUpOpenedFace = makeBlockState("barrel_unopened_open", 90, 0);
 	final private BlockState baseStateBarrelUnopenedDownOpenedFace = makeBlockState("barrel_unopened_open",180, 0);
 
 
-	final private BlockState baseStateBarrelOpenedNorthOpenedFace = makeBlockState("opened_barrel_open", 0, 0);
-	final private BlockState baseStateBarrelOpenedSouthOpenedFace = makeBlockState("opened_barrel_open", 180, 0);
-	final private BlockState baseStateBarrelOpenedEastOpenedFace = makeBlockState("opened_barrel_open", 0, 270);
-	final private BlockState baseStateBarrelOpenedWestOpenedFace = makeBlockState("opened_barrel_open", 0, 180);
+	final private BlockState baseStateBarrelOpenedNorthOpenedFace = makeBlockState("opened_barrel_open", 90, 0);
+	final private BlockState baseStateBarrelOpenedEastOpenedFace = makeBlockState("opened_barrel_open", 90, 90);
+	final private BlockState baseStateBarrelOpenedSouthOpenedFace = makeBlockState("opened_barrel_open", 90, 90);
+	final private BlockState baseStateBarrelOpenedWestOpenedFace = makeBlockState("opened_barrel_open", 90, 270);
 	final private BlockState baseStateBarrelOpenedUpOpenedFace = makeBlockState("opened_barrel_open", 0, 0);
 	final private BlockState baseStateBarrelOpenedDownOpenedFace = makeBlockState("opened_barrel_open",180, 0);
 
-	final private BlockState baseStateBarrelUnopenedNorthClosedFace = makeBlockState("barrel_unopened", 0, 0);
-	final private BlockState baseStateBarrelUnopenedSouthClosedFace = makeBlockState("barrel_unopened", 180, 0);
-	final private BlockState baseStateBarrelUnopenedEastClosedFace = makeBlockState("barrel_unopened", 0, 270);
-	final private BlockState baseStateBarrelUnopenedWestClosedFace = makeBlockState("barrel_unopened", 0, 180);
+	final private BlockState baseStateBarrelUnopenedNorthClosedFace = makeBlockState("barrel_unopened", 90, 0);
+	final private BlockState baseStateBarrelUnopenedEastClosedFace = makeBlockState("barrel_unopened", 90, 90);
+	final private BlockState baseStateBarrelUnopenedSouthClosedFace = makeBlockState("barrel_unopened", 90, 180);
+	final private BlockState baseStateBarrelUnopenedWestClosedFace = makeBlockState("barrel_unopened", 90, 270);
 	final private BlockState baseStateBarrelUnopenedUpClosedFace = makeBlockState("barrel_unopened", 0, 0);
 	final private BlockState baseStateBarrelUnopenedDownClosedFace = makeBlockState("barrel_unopened",180, 0);
 
-	final private BlockState baseStateBarrelOpenedNorthClosedFace = makeBlockState("opened_barrel", 0, 0);
-	final private BlockState baseStateBarrelOpenedSouthClosedFace = makeBlockState("opened_barrel", 180, 0);
-	final private BlockState baseStateBarrelOpenedEastClosedFace = makeBlockState("opened_barrel", 0, 270);
-	final private BlockState baseStateBarrelOpenedWestClosedFace = makeBlockState("opened_barrel", 0, 180);
+	final private BlockState baseStateBarrelOpenedNorthClosedFace = makeBlockState("opened_barrel", 90, 0);
+	final private BlockState baseStateBarrelOpenedEastClosedFace = makeBlockState("opened_barrel", 90, 90);
+	final private BlockState baseStateBarrelOpenedSouthClosedFace = makeBlockState("opened_barrel", 90, 180);
+	final private BlockState baseStateBarrelOpenedWestClosedFace = makeBlockState("opened_barrel", 90, 270);
 	final private BlockState baseStateBarrelOpenedUpClosedFace = makeBlockState("opened_barrel", 0, 0);
 	final private BlockState baseStateBarrelOpenedDownClosedFace = makeBlockState("opened_barrel",180, 0);
 	
@@ -91,7 +91,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 		if (blockEntity instanceof ILootrBlockEntity) {
 			switch (pState.getValue(BarrelBlock.FACING)) {
 				case DOWN:
-					x = 180;
+				PolyLootr.LOGGER.info("Block facing: DOWN");
 					if ((((ILootrBlockEntity) blockEntity).hasBeenOpened())) {
 						if (pState.getValue(BarrelBlock.OPEN)) {
 							this.polymerBlockState = baseStateBarrelOpenedDownOpenedFace;
@@ -111,7 +111,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 					}
 					break;
 				case EAST:
-					y = 90;
+				PolyLootr.LOGGER.info("Block facing: EAST");
 					if ((((ILootrBlockEntity) blockEntity).hasBeenOpened())) {
 						if (pState.getValue(BarrelBlock.OPEN)) {
 							this.polymerBlockState = baseStateBarrelOpenedEastOpenedFace;
@@ -131,6 +131,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 					}
 					break;
 				case NORTH:
+				PolyLootr.LOGGER.info("Block facing: NORTH");
 				if ((((ILootrBlockEntity) blockEntity).hasBeenOpened())) {
 					if (pState.getValue(BarrelBlock.OPEN)) {
 						this.polymerBlockState = baseStateBarrelOpenedNorthOpenedFace;
@@ -150,7 +151,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 				}
 					break;
 				case SOUTH:
-					y = 180;
+				PolyLootr.LOGGER.info("Block facing: SOUTH");
 					if ((((ILootrBlockEntity) blockEntity).hasBeenOpened())) {
 						if (pState.getValue(BarrelBlock.OPEN)) {
 							this.polymerBlockState = baseStateBarrelOpenedSouthOpenedFace;
@@ -170,6 +171,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 					}
 					break;
 				case UP:
+				PolyLootr.LOGGER.info("Block facing: UP");
 					if ((((ILootrBlockEntity) blockEntity).hasBeenOpened())) {
 						if (pState.getValue(BarrelBlock.OPEN)) {
 							this.polymerBlockState = baseStateBarrelOpenedUpOpenedFace;
@@ -189,7 +191,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 					}
 					break;
 				case WEST:
-					y = 270;
+				PolyLootr.LOGGER.info("Block facing: WEST");
 					if ((((ILootrBlockEntity) blockEntity).hasBeenOpened())) {
 						if (pState.getValue(BarrelBlock.OPEN)) {
 							this.polymerBlockState = baseStateBarrelOpenedWestOpenedFace;
@@ -204,6 +206,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 							isOpened = true;
 						} else {
 							this.polymerBlockState = baseStateBarrelUnopenedWestClosedFace;
+							
 							isOpened = false;
 						}
 					}
@@ -212,7 +215,7 @@ public class LootrBarrelBlockMixin implements PolymerTexturedBlock {
 					break;
 			}
 		}
-		PolyLootr.LOGGER.info("Block facing: x: " + x + ", y: " + y);
+
 		PolyLootr.LOGGER.info("Is opened? " + (isOpened? "true": "false"));
 		// this.polymerBlockState =
 	}
